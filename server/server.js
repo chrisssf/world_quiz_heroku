@@ -44,12 +44,6 @@ MongoClient.connect('mongodb+srv://Chrisssf:Chrimssf@freecluster.zfuvg.mongodb.n
 
 
 
-// original code for running locally!!!!!!!!!!!!
-// app.listen( 3000, function() {
-//   console.log( `World Quiz server running on port ${this.address().port}` );
-// });  
-
-
 // Handle Production
 
 if (process.env.NODE_ENV === "production") {
@@ -57,9 +51,15 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + '/public'))
 
   // handle Single Page Aplication
-  app.get(/.*/)
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
 }
 
+
+
+// original code for running locally!!!!!!!!!!!!
+// app.listen( 3000, function() {
+//   console.log( `World Quiz server running on port ${this.address().port}` );
+// });  
 
 // New code for heroku. Uses port assigned by heroku OR if not on heroku, use originall port!!!!!!
 const port = process.env.PORT || 3000

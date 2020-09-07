@@ -1,5 +1,5 @@
-const baseURL = 'http://localhost:3000/api/countries'
-// const baseURL = 'api/countries'
+// const baseURL = 'http://localhost:3000/api/countries'
+const baseURL = 'api/countries/'
 
 export default {
   getCountries() {
